@@ -19,8 +19,8 @@ const Restaurants = (props) => {
                 }
             }
         )
-            .then(response => setList(response.data.restaurants))
-            .catch(error => console.log(error))
+        .then(response => setList(response.data.restaurants))
+            
     }
     useEffect(() =>  fetchData(), []);
 
