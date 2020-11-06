@@ -2,9 +2,13 @@ import axios from "axios";
 import React, {useEffect, useState} from 'react';
 import { SafeAreaView, Text, View, FlatList } from 'react-native';
 import { RestaurantItem } from "../components";
+import { useDispatch } from "react-redux"
+
 
 const Restaurants = (props) => {
     const [list, setList] = useState([]);
+    dispatch = useDispatch()
+
 
     const fetchData = () => {
         axios.get(
@@ -20,7 +24,17 @@ const Restaurants = (props) => {
     }
     useEffect(() =>  fetchData(), []);
 
-    const renderList = ({item}) => <RestaurantItem item={item} />
+    const renderList = ({item}) => {
+        return(
+            <RestaurantItem
+                item={item}
+                onAddFavorite ={() => dispatch({
+                    type: "ADD_TO_FAVORITE",
+                    payload: { selectedRestaurant: item }
+                })}
+            />
+        )
+    } 
 
     return (
         <SafeAreaView style={{flex:1}} >

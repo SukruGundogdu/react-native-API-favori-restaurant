@@ -1,5 +1,5 @@
 export function reducer(state, action){
-    switch(action,type){
+    switch(action.type){
         case "ADD_TO_FAVORITE":
             // 1)const newList=[...state.favoriteList];
             // 1)newList.push(action.payload.selectedRestaurant);
