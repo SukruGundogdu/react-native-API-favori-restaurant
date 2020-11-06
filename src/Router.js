@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -15,7 +14,7 @@ const store = createStore(reducer, initialState);
 
 function Router() {
   return (
-    <Provider>
+    <Provider store={store} >
       <NavigationContainer >
         <Tab.Navigator
           initialRouteName="RestaurantPage"
